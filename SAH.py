@@ -101,10 +101,6 @@ def draw_main_plot(fig, ax, W, flows, graph_type="Caudal vs Hora", style="Bar 2D
         ax2.grid(True, linestyle='--', alpha=0.4)
         return fig, ax2
 
-# --------------------------
-# Simulador de cuenca "más realista"
-# (se mantiene tal como en v3 que te gustó)
-# --------------------------
 def open_watershed_simulator_realistic(root, areas_km2, V_matrix, p):
     a = len(areas_km2)
     h = a + p - 1
@@ -196,13 +192,10 @@ def open_watershed_simulator_realistic(root, areas_km2, V_matrix, p):
 
     ttk.Button(ctrl, text="Cerrar", command=top.destroy).pack(pady=6)
 
-# --------------------------
-# UI principal V3 (mejorada)
-# --------------------------
 class SAHAppV3:
     def __init__(self, root):
         self.root = root
-        root.title("SAH - Volúmenes Pasantes (v3)")
+        root.title("SAH - Volúmenes Pasantes ")
 
         # styling (más corporativo)
         style = ttk.Style(root)

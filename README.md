@@ -1,2 +1,2 @@
-# Simulaci-n-aluvi-n-en-hoya.-SAH
+# Simulacion-Aluvion-en-Hoya.-SAH
 Proyecto universitario.

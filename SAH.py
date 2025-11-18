@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-SAH - Versión 3 actualizada (mantiene tu UI preferida)
+SAH
 Cambios aplicados:
  - El cuadro de resultados (self.txt) ahora es de sólo lectura para el usuario.
    El código sigue escribiendo con helpers (print_line, clear_results_display).
@@ -22,9 +22,6 @@ try:
 except Exception:
     HAS_3D = False
 
-# --------------------------
-# Modelo (misma lógica)
-# --------------------------
 def compute_Y_from_hour_vectors(Ce_vec, Cm_vec, a):
     Ce = np.asarray(Ce_vec, dtype=float).reshape(-1)
     Cm = np.asarray(Cm_vec, dtype=float).reshape(-1)

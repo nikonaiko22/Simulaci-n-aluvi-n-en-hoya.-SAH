@@ -83,12 +83,11 @@ La ventana principal se abrirá y podrás:
 
 ---
 
-## Estructura de archivos (sugerida)
+## Estructura de archivos
 
 - SAH.py  ← Script principal (contiene UI, lógica y simulador).
 - requirements.txt     ← Dependencias Python (numpy, matplotlib).
 - README.md            ← Este archivo.
-- assets/              ← (opcional) iconos, logo, etc.
 
 ---
 

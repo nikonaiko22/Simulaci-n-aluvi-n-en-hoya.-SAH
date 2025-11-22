@@ -9,7 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- Avalonia packages: adjust versions if you prefer latest -->
     <PackageReference Include="Avalonia" Version="11.0.0" />
     <PackageReference Include="Avalonia.Desktop" Version="11.0.0" />
     <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.0" />
@@ -18,6 +17,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SAH.Core\SAH.Core.csproj" />
+  </ItemGroup>
+
+  <!-- Recursos: las imágenes que colocaste en SAH.UI\Assets -->
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\logoprincipal.png" />
+    <AvaloniaResource Include="Assets\logo.ico" />
   </ItemGroup>
 
 </Project>

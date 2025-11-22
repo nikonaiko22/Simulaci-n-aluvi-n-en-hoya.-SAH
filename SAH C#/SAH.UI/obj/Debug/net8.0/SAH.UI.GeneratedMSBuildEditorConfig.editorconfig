@@ -26,3 +26,6 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
 [D:/descargas/Simulaci-n-aluvi-n-en-hoya.-SAH/SAH C\#/SAH.UI/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/descargas/Simulaci-n-aluvi-n-en-hoya.-SAH/SAH C\#/SAH.UI/SplashWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

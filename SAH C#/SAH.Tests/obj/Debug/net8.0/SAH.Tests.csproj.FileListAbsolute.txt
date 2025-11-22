@@ -100,8 +100,8 @@ D:\SAH MIGRACION\SAH.Tests\obj\Debug\net8.0\SAH.Tests.pdb
 D:\SAH MIGRACION\SAH.Tests\obj\Debug\net8.0\SAH.Tests.genruntimeconfig.cache
 D:\SAH MIGRACION\SAH.Tests\obj\Debug\net8.0\ref\SAH.Tests.dll
 D:\descargas\Simulaci-n-aluvi-n-en-hoya.-SAH\SAH C#\SAH.Tests\bin\Debug\net8.0\.msCoverageSourceRootsMapping_SAH.Tests
-D:\descargas\Simulaci-n-aluvi-n-en-hoya.-SAH\SAH C#\SAH.Tests\bin\Debug\net8.0\testhost.exe
 D:\descargas\Simulaci-n-aluvi-n-en-hoya.-SAH\SAH C#\SAH.Tests\bin\Debug\net8.0\testhost.dll
+D:\descargas\Simulaci-n-aluvi-n-en-hoya.-SAH\SAH C#\SAH.Tests\bin\Debug\net8.0\testhost.exe
 D:\descargas\Simulaci-n-aluvi-n-en-hoya.-SAH\SAH C#\SAH.Tests\bin\Debug\net8.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
 D:\descargas\Simulaci-n-aluvi-n-en-hoya.-SAH\SAH C#\SAH.Tests\bin\Debug\net8.0\xunit.runner.reporters.netcoreapp10.dll
 D:\descargas\Simulaci-n-aluvi-n-en-hoya.-SAH\SAH C#\SAH.Tests\bin\Debug\net8.0\xunit.runner.utility.netcoreapp10.dll

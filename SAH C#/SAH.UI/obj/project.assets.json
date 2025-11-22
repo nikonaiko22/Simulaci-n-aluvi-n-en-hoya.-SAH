@@ -1744,11 +1744,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\SAH MIGRACION\\SAH.UI\\SAH.UI.csproj",
+      "projectUniqueName": "D:\\descargas\\Simulaci-n-aluvi-n-en-hoya.-SAH\\SAH C#\\SAH.UI\\SAH.UI.csproj",
       "projectName": "SAH.UI",
-      "projectPath": "D:\\SAH MIGRACION\\SAH.UI\\SAH.UI.csproj",
+      "projectPath": "D:\\descargas\\Simulaci-n-aluvi-n-en-hoya.-SAH\\SAH C#\\SAH.UI\\SAH.UI.csproj",
       "packagesPath": "C:\\Users\\nico-\\.nuget\\packages\\",
-      "outputPath": "D:\\SAH MIGRACION\\SAH.UI\\obj\\",
+      "outputPath": "D:\\descargas\\Simulaci-n-aluvi-n-en-hoya.-SAH\\SAH C#\\SAH.UI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\nico-\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1763,8 +1763,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\SAH MIGRACION\\SAH.Core\\SAH.Core.csproj": {
-              "projectPath": "D:\\SAH MIGRACION\\SAH.Core\\SAH.Core.csproj"
+            "D:\\descargas\\Simulaci-n-aluvi-n-en-hoya.-SAH\\SAH C#\\SAH.Core\\SAH.Core.csproj": {
+              "projectPath": "D:\\descargas\\Simulaci-n-aluvi-n-en-hoya.-SAH\\SAH C#\\SAH.Core\\SAH.Core.csproj"
             }
           }
         }

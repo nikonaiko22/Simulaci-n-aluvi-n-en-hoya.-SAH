@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CiRz6Xctbx4=",
+  "dgSpecHash": "IjKwgN6GIXM=",
   "success": true,
-  "projectFilePath": "D:\\SAH MIGRACION\\SAH.UI\\SAH.UI.csproj",
+  "projectFilePath": "D:\\descargas\\Simulaci-n-aluvi-n-en-hoya.-SAH\\SAH C#\\SAH.UI\\SAH.UI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nico-\\.nuget\\packages\\avalonia\\11.0.0\\avalonia.11.0.0.nupkg.sha512",
     "C:\\Users\\nico-\\.nuget\\packages\\avalonia.angle.windows.natives\\2.1.0.2023020321\\avalonia.angle.windows.natives.2.1.0.2023020321.nupkg.sha512",

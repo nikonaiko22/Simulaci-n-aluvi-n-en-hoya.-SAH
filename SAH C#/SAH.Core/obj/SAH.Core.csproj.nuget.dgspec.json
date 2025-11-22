@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\SAH MIGRACION\\SAH.Core\\SAH.Core.csproj": {}
+    "D:\\descargas\\Simulaci-n-aluvi-n-en-hoya.-SAH\\SAH C#\\SAH.Core\\SAH.Core.csproj": {}
   },
   "projects": {
-    "D:\\SAH MIGRACION\\SAH.Core\\SAH.Core.csproj": {
+    "D:\\descargas\\Simulaci-n-aluvi-n-en-hoya.-SAH\\SAH C#\\SAH.Core\\SAH.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SAH MIGRACION\\SAH.Core\\SAH.Core.csproj",
+        "projectUniqueName": "D:\\descargas\\Simulaci-n-aluvi-n-en-hoya.-SAH\\SAH C#\\SAH.Core\\SAH.Core.csproj",
         "projectName": "SAH.Core",
-        "projectPath": "D:\\SAH MIGRACION\\SAH.Core\\SAH.Core.csproj",
+        "projectPath": "D:\\descargas\\Simulaci-n-aluvi-n-en-hoya.-SAH\\SAH C#\\SAH.Core\\SAH.Core.csproj",
         "packagesPath": "C:\\Users\\nico-\\.nuget\\packages\\",
-        "outputPath": "D:\\SAH MIGRACION\\SAH.Core\\obj\\",
+        "outputPath": "D:\\descargas\\Simulaci-n-aluvi-n-en-hoya.-SAH\\SAH C#\\SAH.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nico-\\AppData\\Roaming\\NuGet\\NuGet.Config"

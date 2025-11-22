@@ -15,14 +15,14 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SAH.UI
-build_property.ProjectDir = D:\SAH MIGRACION\SAH.UI\
+build_property.ProjectDir = D:\descargas\Simulaci-n-aluvi-n-en-hoya.-SAH\SAH C#\SAH.UI\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/SAH MIGRACION/SAH.UI/App.axaml]
+[D:/descargas/Simulaci-n-aluvi-n-en-hoya.-SAH/SAH C\#/SAH.UI/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[D:/SAH MIGRACION/SAH.UI/MainWindow.axaml]
+[D:/descargas/Simulaci-n-aluvi-n-en-hoya.-SAH/SAH C\#/SAH.UI/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

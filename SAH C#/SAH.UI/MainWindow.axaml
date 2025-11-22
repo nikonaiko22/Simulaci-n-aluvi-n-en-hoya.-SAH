@@ -1,0 +1,63 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="SAH.UI.MainWindow"
+        Title="SAH - Volúmenes Pasantes (Avalonia)"
+        Width="1000" Height="700"
+        Background="#F6F7F9">
+  <Grid ColumnDefinitions="300, *" RowDefinitions="Auto, *" Margin="8" Background="#FFFFFF">
+    <!-- Header -->
+    <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Text="SAH - Cálculo de Volúmenes Pasantes" FontSize="18" FontWeight="Bold" Margin="0,0,0,8" Foreground="#111"/>
+
+    <!-- Left controls -->
+    <StackPanel Grid.Row="1" Grid.Column="0" Spacing="6">
+      <TextBlock Text="Parámetros iniciales" FontWeight="Bold" Margin="0,0,0,4" Foreground="#111"/>
+      <StackPanel Orientation="Horizontal" Spacing="6">
+        <TextBlock Text="Cantidad áreas (a):" VerticalAlignment="Center" Foreground="#111"/>
+        <TextBox Name="ABox" Width="60"/>
+      </StackPanel>
+
+      <Button Name="EditAreasBtn" Content="Editar Áreas (km²)" />
+
+      <StackPanel Orientation="Horizontal" Spacing="6">
+        <TextBlock Text="Cantidad precip. (p):" VerticalAlignment="Center" Foreground="#111"/>
+        <TextBox Name="PBox" Width="60"/>
+      </StackPanel>
+
+      <Button Name="EditPrecipsBtn" Content="Editar Precipitaciones (P,Ce,Cm)" />
+
+      <Separator/>
+
+      <StackPanel Orientation="Horizontal" Spacing="6">
+        <Button Name="SimulateBtn" Content="Simular" Width="120"/>
+        <Button Name="ShowResultsBtn" Content="Ver Resumen" Width="120"/>
+      </StackPanel>
+
+      <TextBlock Text="Notas:" FontWeight="Bold" Margin="0,8,0,0" Foreground="#111"/>
+      <TextBlock Text="- Edita valores con las ventanas. Pulsa Simular para calcular." TextWrapping="Wrap" Foreground="#111"/>
+      <TextBlock Text="- Resultado mostrará tabla y resumen." TextWrapping="Wrap" Foreground="#111"/>
+    </StackPanel>
+
+    <!-- Right: results -->
+    <Grid Grid.Row="1" Grid.Column="1" RowDefinitions="Auto, *" Margin="8,0,0,0">
+      <Border Grid.Row="0" Height="280" BorderBrush="#DDD" BorderThickness="1" CornerRadius="4" Padding="6" Background="#FFF">
+        <ScrollViewer>
+          <ItemsControl Name="ResultsList" >
+            <ItemsControl.ItemTemplate>
+              <DataTemplate>
+                <StackPanel Orientation="Horizontal" Spacing="12">
+                  <TextBlock Text="{Binding Hour}" Width="60" Foreground="#111"/>
+                  <TextBlock Text="{Binding Volume}" Width="200" Foreground="#111"/>
+                  <TextBlock Text="{Binding Flow}" Width="200" Foreground="#111"/>
+                </StackPanel>
+              </DataTemplate>
+            </ItemsControl.ItemTemplate>
+          </ItemsControl>
+        </ScrollViewer>
+      </Border>
+
+      <StackPanel Grid.Row="1" Margin="0,8,0,0" Spacing="6">
+        <TextBox Name="SummaryBox" AcceptsReturn="True" Height="200" IsReadOnly="True" TextWrapping="NoWrap"/>
+      </StackPanel>
+    </Grid>
+  </Grid>
+</Window>

@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="SAH.Core/SAH.Core.csproj" />
+  <Project Path="SAH.Tests/SAH.Tests.csproj" />
+  <Project Path="SAH.UI/SAH.UI.csproj" />
+</Solution>

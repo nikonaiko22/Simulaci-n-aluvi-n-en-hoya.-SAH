@@ -1,0 +1,9 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:fluent="clr-namespace:Avalonia.Themes.Fluent;assembly=Avalonia.Themes.Fluent"
+             x:Class="SAH.UI.App">
+  <Application.Styles>
+    <!-- No especificamos la variante aquí para evitar errores por diferencias de versión -->
+    <fluent:FluentTheme />
+  </Application.Styles>
+</Application>

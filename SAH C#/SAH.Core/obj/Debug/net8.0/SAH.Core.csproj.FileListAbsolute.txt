@@ -1,0 +1,11 @@
+D:\SAH MIGRACION\SAH.Core\bin\Debug\net8.0\SAH.Core.deps.json
+D:\SAH MIGRACION\SAH.Core\bin\Debug\net8.0\SAH.Core.dll
+D:\SAH MIGRACION\SAH.Core\bin\Debug\net8.0\SAH.Core.pdb
+D:\SAH MIGRACION\SAH.Core\obj\Debug\net8.0\SAH.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\SAH MIGRACION\SAH.Core\obj\Debug\net8.0\SAH.Core.AssemblyInfoInputs.cache
+D:\SAH MIGRACION\SAH.Core\obj\Debug\net8.0\SAH.Core.AssemblyInfo.cs
+D:\SAH MIGRACION\SAH.Core\obj\Debug\net8.0\SAH.Core.csproj.CoreCompileInputs.cache
+D:\SAH MIGRACION\SAH.Core\obj\Debug\net8.0\SAH.Core.dll
+D:\SAH MIGRACION\SAH.Core\obj\Debug\net8.0\refint\SAH.Core.dll
+D:\SAH MIGRACION\SAH.Core\obj\Debug\net8.0\SAH.Core.pdb
+D:\SAH MIGRACION\SAH.Core\obj\Debug\net8.0\ref\SAH.Core.dll

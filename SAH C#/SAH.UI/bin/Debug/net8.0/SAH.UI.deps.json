@@ -12,6 +12,7 @@
           "Avalonia.Desktop": "11.0.0",
           "Avalonia.ReactiveUI": "11.0.0",
           "Avalonia.Themes.Fluent": "11.0.0",
+          "ReactiveUI": "20.1.1",
           "SAH.Core": "1.0.0"
         },
         "runtime": {
@@ -133,8 +134,8 @@
       "Avalonia.ReactiveUI/11.0.0": {
         "dependencies": {
           "Avalonia": "11.0.0",
-          "ReactiveUI": "18.3.1",
-          "System.Reactive": "5.0.0"
+          "ReactiveUI": "20.1.1",
+          "System.Reactive": "6.0.0"
         },
         "runtime": {
           "lib/net6.0/Avalonia.ReactiveUI.dll": {
@@ -203,14 +204,14 @@
           }
         }
       },
-      "DynamicData/7.9.5": {
+      "DynamicData/8.4.1": {
         "dependencies": {
-          "System.Reactive": "5.0.0"
+          "System.Reactive": "6.0.0"
         },
         "runtime": {
-          "lib/net6.0/DynamicData.dll": {
-            "assemblyVersion": "7.9.0.0",
-            "fileVersion": "7.9.5.54039"
+          "lib/net8.0/DynamicData.dll": {
+            "assemblyVersion": "8.4.0.0",
+            "fileVersion": "8.4.1.20756"
           }
         }
       },
@@ -305,15 +306,15 @@
           }
         }
       },
-      "ReactiveUI/18.3.1": {
+      "ReactiveUI/20.1.1": {
         "dependencies": {
-          "DynamicData": "7.9.5",
-          "Splat": "14.4.1"
+          "DynamicData": "8.4.1",
+          "Splat": "15.1.1"
         },
         "runtime": {
-          "lib/net6.0/ReactiveUI.dll": {
-            "assemblyVersion": "18.3.0.0",
-            "fileVersion": "18.3.1.49589"
+          "lib/net8.0/ReactiveUI.dll": {
+            "assemblyVersion": "20.1.0.0",
+            "fileVersion": "20.1.1.46356"
           }
         }
       },
@@ -384,11 +385,11 @@
           }
         }
       },
-      "Splat/14.4.1": {
+      "Splat/15.1.1": {
         "runtime": {
-          "lib/net6.0/Splat.dll": {
-            "assemblyVersion": "14.4.0.0",
-            "fileVersion": "14.4.1.53869"
+          "lib/net8.0/Splat.dll": {
+            "assemblyVersion": "15.1.0.0",
+            "fileVersion": "15.1.1.17670"
           }
         }
       },
@@ -425,11 +426,11 @@
           }
         }
       },
-      "System.Reactive/5.0.0": {
+      "System.Reactive/6.0.0": {
         "runtime": {
-          "lib/net5.0/System.Reactive.dll": {
-            "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.0.1"
+          "lib/net6.0/System.Reactive.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.0.1"
           }
         }
       },
@@ -537,12 +538,12 @@
       "path": "avalonia.x11/11.0.0",
       "hashPath": "avalonia.x11.11.0.0.nupkg.sha512"
     },
-    "DynamicData/7.9.5": {
+    "DynamicData/8.4.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-xFwVha7o3qUtVYxco5p+7Urcztc/m1gmaEUxOG0i7LNe+vfCfyb0ECAsT2FLm3zOPHb0g8s9qVu5LfPKfRNVng==",
-      "path": "dynamicdata/7.9.5",
-      "hashPath": "dynamicdata.7.9.5.nupkg.sha512"
+      "sha512": "sha512-Mn1+fU/jqxgONEJq8KLQPGWEi7g/hUVTbjZyn4QM0sWWDAVOHPO9WjXWORSykwdfg/6S3GM15qsfz+2EvO+QAQ==",
+      "path": "dynamicdata/8.4.1",
+      "hashPath": "dynamicdata.8.4.1.nupkg.sha512"
     },
     "HarfBuzzSharp/2.8.2.3": {
       "type": "package",
@@ -586,12 +587,12 @@
       "path": "microsoft.win32.systemevents/6.0.0",
       "hashPath": "microsoft.win32.systemevents.6.0.0.nupkg.sha512"
     },
-    "ReactiveUI/18.3.1": {
+    "ReactiveUI/20.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-0tclGtjrRPfA2gbjiM7O3DeNmo6/TpDn7CMN6jgzDrbgrnysM7oEzjGEeXbtXaOxH6kEf6RiMKWobZoSgbBXhQ==",
-      "path": "reactiveui/18.3.1",
-      "hashPath": "reactiveui.18.3.1.nupkg.sha512"
+      "sha512": "sha512-9hNPknWjijnaSWs6auypoXqUptPZcRpUypF+cf1zD50fgW+SEoQda502N3fVZ2eWPcaiUad+z6GaLwOWmUVHNw==",
+      "path": "reactiveui/20.1.1",
+      "hashPath": "reactiveui.20.1.1.nupkg.sha512"
     },
     "SkiaSharp/2.88.3": {
       "type": "package",
@@ -621,12 +622,12 @@
       "path": "skiasharp.nativeassets.win32/2.88.3",
       "hashPath": "skiasharp.nativeassets.win32.2.88.3.nupkg.sha512"
     },
-    "Splat/14.4.1": {
+    "Splat/15.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Z1Mncnzm9pNIaIbZ/EWH6x5ESnKsmAvu8HP4StBRw+yhz0lzE7LCbt22TNTPaFrYLYbYCbGQIc/61yuSnpLidg==",
-      "path": "splat/14.4.1",
-      "hashPath": "splat.14.4.1.nupkg.sha512"
+      "sha512": "sha512-RHDTdF90FwVbRia2cmuIzkiVoETqnXSB2dDBBi/I35HWXqv4OKGqoMcfcd6obMvO2OmmY5PjU1M62K8LkJafAA==",
+      "path": "splat/15.1.1",
+      "hashPath": "splat.15.1.1.nupkg.sha512"
     },
     "System.Drawing.Common/6.0.0": {
       "type": "package",
@@ -642,12 +643,12 @@
       "path": "system.io.pipelines/6.0.0",
       "hashPath": "system.io.pipelines.6.0.0.nupkg.sha512"
     },
-    "System.Reactive/5.0.0": {
+    "System.Reactive/6.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-erBZjkQHWL9jpasCE/0qKAryzVBJFxGHVBAvgRN1bzM0q2s1S4oYREEEL0Vb+1kA/6BKb5FjUZMp5VXmy+gzkQ==",
-      "path": "system.reactive/5.0.0",
-      "hashPath": "system.reactive.5.0.0.nupkg.sha512"
+      "sha512": "sha512-31kfaW4ZupZzPsI5PVe77VhnvFF55qgma7KZr/E0iFTs6fmdhhG8j0mgEx620iLTey1EynOkEfnyTjtNEpJzGw==",
+      "path": "system.reactive/6.0.0",
+      "hashPath": "system.reactive.6.0.0.nupkg.sha512"
     },
     "Tmds.DBus.Protocol/0.15.0": {
       "type": "package",

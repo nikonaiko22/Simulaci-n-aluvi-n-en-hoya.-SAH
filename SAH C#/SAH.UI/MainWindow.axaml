@@ -1,63 +1,140 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="SAH.UI.MainWindow"
-        Title="SAH - Volúmenes Pasantes (Avalonia)"
-        Width="1000" Height="700"
-        Background="#F6F7F9">
-  <Grid ColumnDefinitions="300, *" RowDefinitions="Auto, *" Margin="8" Background="#FFFFFF">
+        Width="1100" Height="720"
+        Background="#F7FBFA"
+        Title="SAH — Volúmenes Pasantes (Principal)">
+  <Grid Margin="12">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="64"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="260"/>
+    </Grid.RowDefinitions>
+
     <!-- Header -->
-    <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Text="SAH - Cálculo de Volúmenes Pasantes" FontSize="18" FontWeight="Bold" Margin="0,0,0,8" Foreground="#111"/>
+    <Border Grid.Row="0" Background="Transparent">
+      <Grid ColumnDefinitions="Auto,*,Auto">
+        <StackPanel Orientation="Horizontal" Spacing="12" VerticalAlignment="Center">
+          <TextBlock Text="SAH" FontSize="20" FontWeight="Bold" Foreground="#0B5F50" VerticalAlignment="Center"/>
+          <TextBlock Text="— Volúmenes Pasantes" Foreground="#3F6060" VerticalAlignment="Center" Margin="6,0,0,0"/>
+        </StackPanel>
 
-    <!-- Left controls -->
-    <StackPanel Grid.Row="1" Grid.Column="0" Spacing="6">
-      <TextBlock Text="Parámetros iniciales" FontWeight="Bold" Margin="0,0,0,4" Foreground="#111"/>
-      <StackPanel Orientation="Horizontal" Spacing="6">
-        <TextBlock Text="Cantidad áreas (a):" VerticalAlignment="Center" Foreground="#111"/>
-        <TextBox Name="ABox" Width="60"/>
-      </StackPanel>
+        <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="8" HorizontalAlignment="Right" VerticalAlignment="Center">
+          <!-- botones mínimos -->
+        </StackPanel>
+      </Grid>
+    </Border>
 
-      <Button Name="EditAreasBtn" Content="Editar Áreas (km²)" />
+    <!-- Main content -->
+    <Grid Grid.Row="1" Margin="0,12,0,12">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="340"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="320"/>
+      </Grid.ColumnDefinitions>
 
-      <StackPanel Orientation="Horizontal" Spacing="6">
-        <TextBlock Text="Cantidad precip. (p):" VerticalAlignment="Center" Foreground="#111"/>
-        <TextBox Name="PBox" Width="60"/>
-      </StackPanel>
+      <!-- Left card: parameters -->
+      <Border Grid.Column="0" Background="#FFFFFF" CornerRadius="10" Padding="14" BorderBrush="#E6F0EE" BorderThickness="1" >
+        <StackPanel Spacing="10">
+          <TextBlock Text="Parámetros" FontSize="16" FontWeight="Bold" Foreground="#0B5F50"/>
+          <StackPanel>
+            <TextBlock Text="Número de áreas (a)" Foreground="#3F6060"/>
+            <TextBox x:Name="ABox" Text="3" Width="120"/>
+          </StackPanel>
 
-      <Button Name="EditPrecipsBtn" Content="Editar Precipitaciones (P,Ce,Cm)" />
+          <StackPanel>
+            <TextBlock Text="Número de precipitaciones (p)" Foreground="#3F6060"/>
+            <TextBox x:Name="PBox" Text="4" Width="120"/>
+          </StackPanel>
 
-      <Separator/>
+          <StackPanel Orientation="Horizontal" Spacing="8">
+            <Button x:Name="EditAreasBtn" Content="Editar Áreas" Width="150" Background="#19D0A8" Foreground="Black"/>
+            <Button x:Name="EditPrecipsBtn" Content="Editar Precipit." Width="150" Background="#19D0A8" Foreground="Black"/>
+          </StackPanel>
 
-      <StackPanel Orientation="Horizontal" Spacing="6">
-        <Button Name="SimulateBtn" Content="Simular" Width="120"/>
-        <Button Name="ShowResultsBtn" Content="Ver Resumen" Width="120"/>
-      </StackPanel>
+          <Button x:Name="SimulateBtn" Content="Simular" Background="#0B5F50" Foreground="White" Height="44" FontWeight="Bold"/>
 
-      <TextBlock Text="Notas:" FontWeight="Bold" Margin="0,8,0,0" Foreground="#111"/>
-      <TextBlock Text="- Edita valores con las ventanas. Pulsa Simular para calcular." TextWrapping="Wrap" Foreground="#111"/>
-      <TextBlock Text="- Resultado mostrará tabla y resumen." TextWrapping="Wrap" Foreground="#111"/>
-    </StackPanel>
+          <ProgressBar x:Name="BusyBar" IsVisible="False" IsIndeterminate="True" Height="8" Foreground="#19D0A8"/>
 
-    <!-- Right: results -->
-    <Grid Grid.Row="1" Grid.Column="1" RowDefinitions="Auto, *" Margin="8,0,0,0">
-      <Border Grid.Row="0" Height="280" BorderBrush="#DDD" BorderThickness="1" CornerRadius="4" Padding="6" Background="#FFF">
-        <ScrollViewer>
-          <ItemsControl Name="ResultsList" >
-            <ItemsControl.ItemTemplate>
-              <DataTemplate>
-                <StackPanel Orientation="Horizontal" Spacing="12">
-                  <TextBlock Text="{Binding Hour}" Width="60" Foreground="#111"/>
-                  <TextBlock Text="{Binding Volume}" Width="200" Foreground="#111"/>
-                  <TextBlock Text="{Binding Flow}" Width="200" Foreground="#111"/>
-                </StackPanel>
-              </DataTemplate>
-            </ItemsControl.ItemTemplate>
-          </ItemsControl>
-        </ScrollViewer>
+          <TextBlock Text="Tipo de gráfico" FontWeight="Bold" Margin="0,8,0,0" Foreground="#0B5F50"/>
+          <StackPanel Orientation="Horizontal" Spacing="8">
+            <RadioButton x:Name="GraphTypeLine" Content="Línea" IsChecked="True"/>
+            <RadioButton x:Name="GraphTypeBars" Content="Barras"/>
+          </StackPanel>
+
+          <TextBlock Text="Consejos" FontWeight="Bold" Foreground="#0B5F50" Margin="0,8,0,0"/>
+          <TextBlock Text="Edita áreas/precipitaciones y pulsa Simular." TextWrapping="Wrap" Foreground="#3F6060" />
+        </StackPanel>
       </Border>
 
-      <StackPanel Grid.Row="1" Margin="0,8,0,0" Spacing="6">
-        <TextBox Name="SummaryBox" AcceptsReturn="True" Height="200" IsReadOnly="True" TextWrapping="NoWrap"/>
-      </StackPanel>
+      <!-- Center: Plot placeholder (habilitaremos luego) -->
+      <Border Grid.Column="1" Background="#FFFFFF" CornerRadius="10" Padding="12" Margin="12,0" BorderBrush="#E6F0EE" BorderThickness="1">
+        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+          <Border Background="#F1F6F6" CornerRadius="6" Padding="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TextBlock Text="Gráfico (deshabilitado temporalmente). Selecciona tipo: Línea o Barras." Foreground="#3F6060" TextWrapping="Wrap" />
+          </Border>
+        </StackPanel>
+      </Border>
+
+      <!-- Right: Summary -->
+      <Border Grid.Column="2" Background="#FFFFFF" CornerRadius="10" Padding="14" BorderBrush="#E6F0EE" BorderThickness="1">
+        <StackPanel Spacing="8">
+          <TextBlock Text="Resumen rápido" FontSize="16" FontWeight="Bold" Foreground="#0B5F50"/>
+          <StackPanel Orientation="Horizontal" Spacing="12">
+            <StackPanel>
+              <TextBlock Text="Q[v] (m³/s)" Foreground="#3F6060"/>
+              <TextBlock x:Name="QmaxText" Text="-" FontSize="18" FontWeight="Bold" Foreground="#0B5F50"/>
+            </StackPanel>
+            <StackPanel>
+              <TextBlock Text="V[v] (m³)" Foreground="#3F6060"/>
+              <TextBlock x:Name="VmaxText" Text="-" FontSize="18" FontWeight="Bold" Foreground="#0B5F50"/>
+            </StackPanel>
+          </StackPanel>
+
+          <Separator Background="#E6F0EE"/>
+
+          <TextBlock Text="Volumen total (m³)" Foreground="#3F6060"/>
+          <TextBlock x:Name="TotalVolText" Text="-" FontSize="14" FontWeight="Bold" Foreground="#0B5F50"/>
+        </StackPanel>
+      </Border>
     </Grid>
+
+    <!-- Bottom: results list with headers -->
+    <Border Grid.Row="2" Background="#FFFFFF" CornerRadius="10" Padding="12" BorderBrush="#E6F0EE" BorderThickness="1">
+      <Grid RowDefinitions="Auto, *" ColumnDefinitions="*,320">
+        <!-- headers -->
+        <Grid Grid.Row="0" ColumnDefinitions="80,120,120,*,80" Margin="0,0,0,8">
+          <TextBlock Text="Hora" FontWeight="Bold" Foreground="#0B5F50"/>
+          <TextBlock Grid.Column="1" Text="Volumen (m³)" FontWeight="Bold" Foreground="#0B5F50"/>
+          <TextBlock Grid.Column="2" Text="Caudal (m³/s)" FontWeight="Bold" Foreground="#0B5F50"/>
+        </Grid>
+
+        <Grid Grid.Row="1" ColumnDefinitions="*,320">
+          <ScrollViewer Grid.Column="0">
+            <ItemsControl x:Name="ResultsList" ItemsSource="{Binding Rows}">
+              <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                  <StackPanel Orientation="Horizontal" Spacing="16">
+                    <TextBlock Text="{Binding Hour}" Width="80" Foreground="#3F6060"/>
+                    <TextBlock Text="{Binding Volume}" Width="120" Foreground="#3F6060"/>
+                    <TextBlock Text="{Binding Flow}" Width="120" Foreground="#3F6060"/>
+                  </StackPanel>
+                </DataTemplate>
+              </ItemsControl.ItemTemplate>
+            </ItemsControl>
+          </ScrollViewer>
+
+          <StackPanel Grid.Column="1" Margin="12,0,0,0">
+            <TextBlock Text="Salida (Resumen)" FontWeight="Bold" Foreground="#0B5F50"/>
+            <ScrollViewer Height="160">
+              <TextBlock x:Name="SummaryBox" Text="{Binding SummaryText}" TextWrapping="Wrap" Foreground="#3F6060"/>
+            </ScrollViewer>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,8,0,0">
+              <Button x:Name="ClearBtn" Content="Limpiar" Width="80" />
+            </StackPanel>
+          </StackPanel>
+        </Grid>
+      </Grid>
+    </Border>
   </Grid>
 </Window>

@@ -1,0 +1,9 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="SAH.UI.Controls.ChartControl">
+  <Border Background="Transparent" Padding="6">
+    <Grid>
+      <Canvas x:Name="PlotCanvas" Background="Transparent"/>
+    </Grid>
+  </Border>
+</UserControl>

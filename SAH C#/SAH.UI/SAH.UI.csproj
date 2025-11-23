@@ -5,6 +5,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <!-- Cargar XAML en runtime (desarrollo) -->
     <AvaloniaUseCompiledXaml>false</AvaloniaUseCompiledXaml>
   </PropertyGroup>
 
@@ -13,16 +14,15 @@
     <PackageReference Include="Avalonia.Desktop" Version="11.0.0" />
     <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.0" />
     <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.0" />
+
+    <!-- mantén o ajusta OxyPlot según prefieras; por ahora dejamos sólo ReactiveUI -->
+    <PackageReference Include="ReactiveUI" Version="20.1.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SAH.Core\SAH.Core.csproj" />
   </ItemGroup>
 
-  <!-- Recursos: las imágenes que colocaste en SAH.UI\Assets -->
-  <ItemGroup>
-    <AvaloniaResource Include="Assets\logoprincipal.png" />
-    <AvaloniaResource Include="Assets\logo.ico" />
-  </ItemGroup>
-
+  <!-- NOTA: he eliminado la línea que incluía **\*.axaml como AvaloniaResource para evitar inclusiones duplicadas.
+       Si prefieres incluir recursos explícitamente, podemos añadir sólo los axaml que quieras uno a uno. -->
 </Project>

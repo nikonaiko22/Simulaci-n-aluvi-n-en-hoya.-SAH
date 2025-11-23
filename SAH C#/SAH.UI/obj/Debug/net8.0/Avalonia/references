@@ -17,7 +17,7 @@ C:\Users\nico-\.nuget\packages\avalonia.skia\11.0.0\lib\net6.0\Avalonia.Skia.dll
 C:\Users\nico-\.nuget\packages\avalonia.themes.fluent\11.0.0\lib\net6.0\Avalonia.Themes.Fluent.dll
 C:\Users\nico-\.nuget\packages\avalonia.win32\11.0.0\lib\net6.0\Avalonia.Win32.dll
 C:\Users\nico-\.nuget\packages\avalonia.x11\11.0.0\lib\net6.0\Avalonia.X11.dll
-C:\Users\nico-\.nuget\packages\dynamicdata\7.9.5\lib\net6.0\DynamicData.dll
+C:\Users\nico-\.nuget\packages\dynamicdata\8.4.1\lib\net8.0\DynamicData.dll
 C:\Users\nico-\.nuget\packages\harfbuzzsharp\2.8.2.3\lib\net6.0\HarfBuzzSharp.dll
 C:\Users\nico-\.nuget\packages\microcom.runtime\0.11.0\lib\net5.0\MicroCom.Runtime.dll
 C:\Users\nico-\.nuget\packages\microsoft.netcore.app.ref\8.0.22\ref\net8.0\Microsoft.CSharp.dll
@@ -28,10 +28,10 @@ C:\Users\nico-\.nuget\packages\microsoft.netcore.app.ref\8.0.22\ref\net8.0\Micro
 C:\Users\nico-\.nuget\packages\microsoft.win32.systemevents\6.0.0\lib\net6.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\nico-\.nuget\packages\microsoft.netcore.app.ref\8.0.22\ref\net8.0\mscorlib.dll
 C:\Users\nico-\.nuget\packages\microsoft.netcore.app.ref\8.0.22\ref\net8.0\netstandard.dll
-C:\Users\nico-\.nuget\packages\reactiveui\18.3.1\lib\net6.0\ReactiveUI.dll
+C:\Users\nico-\.nuget\packages\reactiveui\20.1.1\lib\net8.0\ReactiveUI.dll
 D:\descargas\Simulaci-n-aluvi-n-en-hoya.-SAH\SAH C#\SAH.Core\obj\Debug\net8.0\ref\SAH.Core.dll
 C:\Users\nico-\.nuget\packages\skiasharp\2.88.3\lib\net6.0\SkiaSharp.dll
-C:\Users\nico-\.nuget\packages\splat\14.4.1\lib\net6.0\Splat.dll
+C:\Users\nico-\.nuget\packages\splat\15.1.1\lib\net8.0\Splat.dll
 C:\Users\nico-\.nuget\packages\microsoft.netcore.app.ref\8.0.22\ref\net8.0\System.AppContext.dll
 C:\Users\nico-\.nuget\packages\microsoft.netcore.app.ref\8.0.22\ref\net8.0\System.Buffers.dll
 C:\Users\nico-\.nuget\packages\microsoft.netcore.app.ref\8.0.22\ref\net8.0\System.Collections.Concurrent.dll
@@ -114,7 +114,7 @@ C:\Users\nico-\.nuget\packages\microsoft.netcore.app.ref\8.0.22\ref\net8.0\Syste
 C:\Users\nico-\.nuget\packages\microsoft.netcore.app.ref\8.0.22\ref\net8.0\System.Numerics.dll
 C:\Users\nico-\.nuget\packages\microsoft.netcore.app.ref\8.0.22\ref\net8.0\System.Numerics.Vectors.dll
 C:\Users\nico-\.nuget\packages\microsoft.netcore.app.ref\8.0.22\ref\net8.0\System.ObjectModel.dll
-C:\Users\nico-\.nuget\packages\system.reactive\5.0.0\lib\net5.0\System.Reactive.dll
+C:\Users\nico-\.nuget\packages\system.reactive\6.0.0\lib\net6.0\System.Reactive.dll
 C:\Users\nico-\.nuget\packages\microsoft.netcore.app.ref\8.0.22\ref\net8.0\System.Reflection.DispatchProxy.dll
 C:\Users\nico-\.nuget\packages\microsoft.netcore.app.ref\8.0.22\ref\net8.0\System.Reflection.dll
 C:\Users\nico-\.nuget\packages\microsoft.netcore.app.ref\8.0.22\ref\net8.0\System.Reflection.Emit.dll

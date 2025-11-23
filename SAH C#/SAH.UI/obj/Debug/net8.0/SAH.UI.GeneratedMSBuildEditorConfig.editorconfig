@@ -24,6 +24,15 @@ build_property.EnableCodeStyleSeverity =
 [D:/descargas/Simulaci-n-aluvi-n-en-hoya.-SAH/SAH C\#/SAH.UI/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[D:/descargas/Simulaci-n-aluvi-n-en-hoya.-SAH/SAH C\#/SAH.UI/Controls/ChartControl.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/descargas/Simulaci-n-aluvi-n-en-hoya.-SAH/SAH C\#/SAH.UI/EditAreasDialog.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/descargas/Simulaci-n-aluvi-n-en-hoya.-SAH/SAH C\#/SAH.UI/EditPrecipsDialog.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [D:/descargas/Simulaci-n-aluvi-n-en-hoya.-SAH/SAH C\#/SAH.UI/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 

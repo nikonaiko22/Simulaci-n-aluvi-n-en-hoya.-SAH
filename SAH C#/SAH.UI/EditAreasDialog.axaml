@@ -1,18 +1,19 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="SAH.UI.EditAreasDialog"
-        Width="420" Height="360"
+        Width="420" Height="420"
         Title="Editar Áreas (km²)">
   <StackPanel Margin="12" Spacing="8">
     <TextBlock Text="Editar sub‑áreas (km²)" FontWeight="Bold" FontSize="14"/>
-    <!-- Panel donde se añadirán TextBoxes numerados dinámicamente -->
-    <ScrollViewer Height="220">
+    <ScrollViewer Height="260">
       <StackPanel x:Name="InputsPanel" Spacing="6"/>
     </ScrollViewer>
 
     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8">
-      <Button x:Name="AcceptBtn" Content="Aceptar" Width="90"/>
-      <Button x:Name="CancelBtn" Content="Cancelar" Width="90"/>
+      <Button x:Name="NormalizeBtn" Content="Normalizar" />
+      <Button x:Name="ClearAllBtn" Content="Borrar todo" />
+      <Button x:Name="AcceptBtn" Content="Aceptar" />
+      <Button x:Name="CancelBtn" Content="Cancelar" />
     </StackPanel>
   </StackPanel>
 </Window>

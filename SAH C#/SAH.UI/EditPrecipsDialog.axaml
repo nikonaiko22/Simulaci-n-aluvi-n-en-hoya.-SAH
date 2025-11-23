@@ -1,16 +1,17 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="SAH.UI.EditPrecipsDialog"
-        Width="600" Height="420"
+        Width="600" Height="460"
         Title="Editar Precipitaciones (P_mm, Ce, Cm)">
   <StackPanel Margin="12" Spacing="8">
     <TextBlock Text="Editar precipitaciones por fila (P_mm, Ce, Cm)" FontWeight="Bold" FontSize="14"/>
-    <ScrollViewer Height="260">
+    <ScrollViewer Height="320">
       <StackPanel x:Name="GridPanel" Spacing="6"/>
     </ScrollViewer>
 
     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8">
       <Button x:Name="AddRowBtn" Content="Añadir fila" />
+      <Button x:Name="ClearAllBtn" Content="Borrar todo" />
       <Button x:Name="AcceptBtn" Content="Aceptar" Width="90"/>
       <Button x:Name="CancelBtn" Content="Cancelar" Width="90"/>
     </StackPanel>

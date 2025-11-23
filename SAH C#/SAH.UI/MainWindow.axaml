@@ -1,9 +1,10 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:SAH.UI.Controls;assembly=SAH.UI"
         x:Class="SAH.UI.MainWindow"
         Width="1100" Height="720"
         Background="#F7FBFA"
-        Title="SAH — Volúmenes Pasantes (Principal)">
+        Title="CHARM - Cuenca Hourly Alert and Runoff Monitor">
   <Grid Margin="12">
     <Grid.RowDefinitions>
       <RowDefinition Height="64"/>
@@ -15,12 +16,12 @@
     <Border Grid.Row="0" Background="Transparent">
       <Grid ColumnDefinitions="Auto,*,Auto">
         <StackPanel Orientation="Horizontal" Spacing="12" VerticalAlignment="Center">
-          <TextBlock Text="SAH" FontSize="20" FontWeight="Bold" Foreground="#0B5F50" VerticalAlignment="Center"/>
-          <TextBlock Text="— Volúmenes Pasantes" Foreground="#3F6060" VerticalAlignment="Center" Margin="6,0,0,0"/>
+          <TextBlock Text="CHARM - Cuenca Hourly Alert and Runoff Monitor" FontSize="14" FontWeight="SemiBold" Foreground="#0B5F50" VerticalAlignment="Center"/>
         </StackPanel>
 
+        <!-- Right: Advanced button placeholder -->
         <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="8" HorizontalAlignment="Right" VerticalAlignment="Center">
-          <!-- botones mínimos -->
+          <Button x:Name="AdvancedBtn" Content="Avanzado" Width="110" Background="#E6EEF3" />
         </StackPanel>
       </Grid>
     </Border>
@@ -28,23 +29,24 @@
     <!-- Main content -->
     <Grid Grid.Row="1" Margin="0,12,0,12">
       <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="340"/>
+        <ColumnDefinition Width="320"/>
         <ColumnDefinition Width="*"/>
         <ColumnDefinition Width="320"/>
       </Grid.ColumnDefinitions>
 
-      <!-- Left card: parameters -->
+      <!-- Left card: parameters (ABox moved left and made neater) -->
       <Border Grid.Column="0" Background="#FFFFFF" CornerRadius="10" Padding="14" BorderBrush="#E6F0EE" BorderThickness="1" >
         <StackPanel Spacing="10">
           <TextBlock Text="Parámetros" FontSize="16" FontWeight="Bold" Foreground="#0B5F50"/>
-          <StackPanel>
-            <TextBlock Text="Número de áreas (a)" Foreground="#3F6060"/>
-            <TextBox x:Name="ABox" Text="3" Width="120"/>
-          </StackPanel>
-
-          <StackPanel>
-            <TextBlock Text="Número de precipitaciones (p)" Foreground="#3F6060"/>
-            <TextBox x:Name="PBox" Text="4" Width="120"/>
+          <StackPanel Orientation="Horizontal" Spacing="12" VerticalAlignment="Center">
+            <StackPanel>
+              <TextBlock Text="Número de áreas (a)" Foreground="#3F6060"/>
+              <TextBox x:Name="ABox" Text="3" Width="90"/>
+            </StackPanel>
+            <StackPanel>
+              <TextBlock Text="Nº precipitaciones (p)" Foreground="#3F6060"/>
+              <TextBox x:Name="PBox" Text="4" Width="90"/>
+            </StackPanel>
           </StackPanel>
 
           <StackPanel Orientation="Horizontal" Spacing="8">
@@ -52,31 +54,51 @@
             <Button x:Name="EditPrecipsBtn" Content="Editar Precipit." Width="150" Background="#19D0A8" Foreground="Black"/>
           </StackPanel>
 
-          <Button x:Name="SimulateBtn" Content="Simular" Background="#0B5F50" Foreground="White" Height="44" FontWeight="Bold"/>
+          <StackPanel Orientation="Horizontal" Spacing="8">
+            <Button x:Name="SimulateBtn" Content="Simular" Background="#0B5F50" Foreground="White" Height="44" FontWeight="Bold" Width="150"/>
+            <Button x:Name="ClearBtn" Content="Limpiar" Width="120" Height="44"/>
+          </StackPanel>
+
+          <StackPanel Orientation="Horizontal" Spacing="8">
+            <Button x:Name="ClearAllAreasBtn" Content="Borrar Áreas" Width="150"/>
+            <Button x:Name="ClearAllPrecipsBtn" Content="Borrar Precip." Width="150"/>
+          </StackPanel>
 
           <ProgressBar x:Name="BusyBar" IsVisible="False" IsIndeterminate="True" Height="8" Foreground="#19D0A8"/>
-
-          <TextBlock Text="Tipo de gráfico" FontWeight="Bold" Margin="0,8,0,0" Foreground="#0B5F50"/>
-          <StackPanel Orientation="Horizontal" Spacing="8">
-            <RadioButton x:Name="GraphTypeLine" Content="Línea" IsChecked="True"/>
-            <RadioButton x:Name="GraphTypeBars" Content="Barras"/>
-          </StackPanel>
 
           <TextBlock Text="Consejos" FontWeight="Bold" Foreground="#0B5F50" Margin="0,8,0,0"/>
           <TextBlock Text="Edita áreas/precipitaciones y pulsa Simular." TextWrapping="Wrap" Foreground="#3F6060" />
         </StackPanel>
       </Border>
 
-      <!-- Center: Plot placeholder (habilitaremos luego) -->
+      <!-- Center: Chart + selectors moved into chart card -->
       <Border Grid.Column="1" Background="#FFFFFF" CornerRadius="10" Padding="12" Margin="12,0" BorderBrush="#E6F0EE" BorderThickness="1">
-        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-          <Border Background="#F1F6F6" CornerRadius="6" Padding="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <TextBlock Text="Gráfico (deshabilitado temporalmente). Selecciona tipo: Línea o Barras." Foreground="#3F6060" TextWrapping="Wrap" />
-          </Border>
-        </StackPanel>
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+          </Grid.RowDefinitions>
+
+          <!-- Chart header: selectors on right -->
+          <Grid Grid.Row="0" ColumnDefinitions="*,Auto">
+            <TextBlock Text="Gráfico" FontSize="14" FontWeight="Bold" Foreground="#0B5F50" VerticalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" Grid.Column="1" Spacing="8">
+              <ComboBox x:Name="ChartMetric" SelectedIndex="0" Width="120">
+                <ComboBoxItem Content="Volumen (m³)"/>
+                <ComboBoxItem Content="Caudal (m³/s)"/>
+              </ComboBox>
+              <ComboBox x:Name="ChartType" SelectedIndex="0" Width="120">
+                <ComboBoxItem Content="Línea"/>
+                <ComboBoxItem Content="Barras"/>
+              </ComboBox>
+            </StackPanel>
+          </Grid>
+
+          <local:ChartControl x:Name="MainChart" Grid.Row="1" Margin="0,8,0,0"/>
+        </Grid>
       </Border>
 
-      <!-- Right: Summary -->
+      <!-- Right: Summary with explanations -->
       <Border Grid.Column="2" Background="#FFFFFF" CornerRadius="10" Padding="14" BorderBrush="#E6F0EE" BorderThickness="1">
         <StackPanel Spacing="8">
           <TextBlock Text="Resumen rápido" FontSize="16" FontWeight="Bold" Foreground="#0B5F50"/>
@@ -95,6 +117,14 @@
 
           <TextBlock Text="Volumen total (m³)" Foreground="#3F6060"/>
           <TextBlock x:Name="TotalVolText" Text="-" FontSize="14" FontWeight="Bold" Foreground="#0B5F50"/>
+
+          <Separator Background="#E6F0EE" Margin="0,8,0,8"/>
+
+          <TextBlock Text="Leyenda (explicación)" FontWeight="Bold" Foreground="#0B5F50"/>
+          <TextBlock Text="Q[v] — Caudal pico o máximo observado en el hidrograma (m³/s)." TextWrapping="Wrap" Foreground="#3F6060"/>
+          <TextBlock Text="V[v] — Volumen máximo por hora (m³)." TextWrapping="Wrap" Foreground="#3F6060"/>
+          <TextBlock Text="Tiempo a pico — Hora donde se alcanza Q[v] (h)." TextWrapping="Wrap" Foreground="#3F6060"/>
+          <TextBlock Text="Volumen total — Suma de todos los volúmenes (m³)" TextWrapping="Wrap" Foreground="#3F6060"/>
         </StackPanel>
       </Border>
     </Grid>
@@ -129,9 +159,6 @@
             <ScrollViewer Height="160">
               <TextBlock x:Name="SummaryBox" Text="{Binding SummaryText}" TextWrapping="Wrap" Foreground="#3F6060"/>
             </ScrollViewer>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,8,0,0">
-              <Button x:Name="ClearBtn" Content="Limpiar" Width="80" />
-            </StackPanel>
           </StackPanel>
         </Grid>
       </Grid>

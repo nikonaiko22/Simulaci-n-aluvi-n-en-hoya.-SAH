@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SAH.UI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4cbc807689c804811f7f3081dee164ee1157be30")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+27c24c8d5d49d8f854ab415ee8ad0744200012da")]
 [assembly: System.Reflection.AssemblyProductAttribute("SAH.UI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SAH.UI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

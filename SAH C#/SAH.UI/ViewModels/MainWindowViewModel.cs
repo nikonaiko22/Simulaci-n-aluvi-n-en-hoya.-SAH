@@ -40,8 +40,90 @@ namespace SAH.UI.ViewModels
 
         public MainWindowViewModel()
         {
-            // No OxyPlot/PlotModel here — gráficos manejados por ChartControl
         }
+
+        // -------------------------------
+        // Public helpers for dialogs (memory + partial updates)
+        // -------------------------------
+
+        // Return areas as newline text for prefilling dialogs
+        public string GetAreasText() => string.Join("\r\n", _areasKm2.Select(d => d.ToString("G")));
+
+        // Return precip lines as "P_mm,Ce,Cm"
+        public string GetPrecipsText()
+        {
+            int n = Math.Max(_precips_mm.Length, Math.Max(_ce.Length, _cm.Length));
+            var lines = new System.Collections.Generic.List<string>();
+            for (int i = 0; i < n; i++)
+            {
+                var p = i < _precips_mm.Length ? _precips_mm[i] : 0.0;
+                var ce = i < _ce.Length ? _ce[i] : 0.5;
+                var cm = i < _cm.Length ? _cm[i] : 1.0;
+                lines.Add($"{p},{ce},{cm}");
+            }
+            return string.Join("\r\n", lines);
+        }
+
+        // Replace all areas from parsed text
+        public (bool ok, string error) ReplaceAreasFromText(string text)
+        {
+            return ParseAndSetAreasFromText(text);
+        }
+
+        // Replace all precips from text
+        public (bool ok, string error) ReplacePrecipsFromText(string text)
+        {
+            return ParseAndSetPrecipsFromText(text);
+        }
+
+        // Set a single area value (0-based index). If index >= length, resize preserving values.
+        public void SetAreaAt(int index, double value)
+        {
+            if (index < 0) return;
+            if (_areasKm2.Length <= index) Array.Resize(ref _areasKm2, index + 1);
+            _areasKm2[index] = value;
+            this.RaisePropertyChanged(nameof(AreasCount));
+            SummaryText = $"Áreas guardadas (km²): {string.Join(", ", _areasKm2)}";
+        }
+
+        // Set a single precip row (p,ce,cm). Resizes arrays if needed.
+        public void SetPrecipAt(int index, double p, double ceVal, double cmVal)
+        {
+            if (index < 0) return;
+            if (_precips_mm.Length <= index)
+            {
+                Array.Resize(ref _precips_mm, index + 1);
+                Array.Resize(ref _ce, index + 1);
+                Array.Resize(ref _cm, index + 1);
+            }
+            _precips_mm[index] = p;
+            _ce[index] = ceVal;
+            _cm[index] = cmVal;
+            this.RaisePropertyChanged(nameof(PrecipsCount));
+            SummaryText = $"Precipitaciones guardadas (p={_precips_mm.Length}): P(mm)={string.Join(", ", _precips_mm)}";
+        }
+
+        // Clear all areas
+        public void ClearAreas()
+        {
+            _areasKm2 = Array.Empty<double>();
+            this.RaisePropertyChanged(nameof(AreasCount));
+            SummaryText = "Áreas eliminadas.";
+        }
+
+        // Clear all precip rows
+        public void ClearPrecips()
+        {
+            _precips_mm = Array.Empty<double>();
+            _ce = Array.Empty<double>();
+            _cm = Array.Empty<double>();
+            this.RaisePropertyChanged(nameof(PrecipsCount));
+            SummaryText = "Precipitaciones eliminadas.";
+        }
+
+        // -------------------------------
+        // Existing parsing & simulation (unchanged)
+        // -------------------------------
 
         public int AreasCount => _areasKm2?.Length ?? 0;
         public int PrecipsCount => _precips_mm?.Length ?? 0;
@@ -99,14 +181,13 @@ namespace SAH.UI.ViewModels
             {
                 await Task.Delay(120, token);
 
-                // Ajuste seguro de tamaños
+                // Adjust internal arrays to requested sizes (safe)
                 if (_areasKm2.Length != a)
                 {
                     var tmp = new double[a];
                     for (int i = 0; i < a; i++) tmp[i] = i < _areasKm2.Length ? _areasKm2[i] : 0.0;
                     _areasKm2 = tmp;
                 }
-
                 if (_precips_mm.Length < p)
                 {
                     var listP = new System.Collections.Generic.List<double>(_precips_mm);
@@ -120,11 +201,11 @@ namespace SAH.UI.ViewModels
                     Array.Resize(ref _precips_mm, p); Array.Resize(ref _ce, p); Array.Resize(ref _cm, p);
                 }
 
-                // convertir áreas a m2
+                // convert areas to m2
                 double[] A_m2 = new double[_areasKm2.Length];
                 for (int i = 0; i < _areasKm2.Length; i++) A_m2[i] = _areasKm2[i] * 1e6;
 
-                // Usar SAH.Core (debe existir)
+                // Use SAH.Core algorithms (expected to exist)
                 var Y = HydrologyCalculator.ComputeYFromHourVectors(_ce, _cm, a);
                 var Q = HydrologyCalculator.ComputeQ(_precips_mm, Y, unitsMm: true);
                 var V = HydrologyCalculator.ComputeV(A_m2, Q);
@@ -132,7 +213,7 @@ namespace SAH.UI.ViewModels
                 var flows = new double[W.Length];
                 for (int i = 0; i < W.Length; i++) flows[i] = W[i] / 3600.0; // m3/s
 
-                // rellenar filas
+                // fill rows
                 Rows.Clear();
                 for (int i = 0; i < W.Length; i++)
                 {
@@ -155,7 +236,6 @@ namespace SAH.UI.ViewModels
                 TimeToPeakDisplay = $"{(idxPeak + 1)} h";
 
                 SummaryText = $"Simulación completada: Q[v]={QmaxDisplay}, V[v]={VmaxDisplay}.";
-
                 await Task.Delay(180, token);
             }
             catch (OperationCanceledException) { }

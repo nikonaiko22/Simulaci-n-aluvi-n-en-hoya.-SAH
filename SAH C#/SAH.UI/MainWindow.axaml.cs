@@ -28,6 +28,10 @@ namespace SAH.UI
             var simulateBtn = this.FindControl<Button>("SimulateBtn");
             var clearBtn = this.FindControl<Button>("ClearBtn");
 
+            var clearAllAreasBtn = this.FindControl<Button>("ClearAllAreasBtn");
+            var clearAllPrecipsBtn = this.FindControl<Button>("ClearAllPrecipsBtn");
+            var advancedBtn = this.FindControl<Button>("AdvancedBtn");
+
             var aBox = this.FindControl<TextBox>("ABox");
             var pBox = this.FindControl<TextBox>("PBox");
 
@@ -38,8 +42,7 @@ namespace SAH.UI
             var summaryBox = this.FindControl<TextBlock>("SummaryBox");
             var busyBar = this.FindControl<ProgressBar>("BusyBar");
 
-            var chartLineRb = this.FindControl<RadioButton>("GraphTypeLine");
-            var chartBarsRb = this.FindControl<RadioButton>("GraphTypeBars");
+            var chartType = this.FindControl<ComboBox>("ChartType");
             var chartMetric = this.FindControl<ComboBox>("ChartMetric");
             var mainChart = this.FindControl<ChartControl>("MainChart");
 
@@ -53,34 +56,32 @@ namespace SAH.UI
             void UpdateChartMode()
             {
                 if (mainChart == null) return;
-                bool useBars = chartBarsRb?.IsChecked ?? false;
+                bool useBars = (chartType?.SelectedIndex ?? 0) == 1;
                 bool showVolume = (chartMetric?.SelectedIndex ?? 0) == 0;
                 mainChart.SetMode(useBars, showVolume);
             }
 
-            // Use observables on IsChecked to avoid obsolete Checked event
-            if (chartLineRb != null)
-                chartLineRb.GetObservable(ToggleButton.IsCheckedProperty)
-                           .Subscribe(_ => UpdateChartMode());
-            if (chartBarsRb != null)
-                chartBarsRb.GetObservable(ToggleButton.IsCheckedProperty)
-                           .Subscribe(_ => UpdateChartMode());
-            if (chartMetric != null)
-                chartMetric.SelectionChanged += (_, __) => UpdateChartMode();
+            if (chartType != null) chartType.SelectionChanged += (_, __) => UpdateChartMode();
+            if (chartMetric != null) chartMetric.SelectionChanged += (_, __) => UpdateChartMode();
+
+            if (advancedBtn != null)
+            {
+                // Placeholder - no action for now
+                advancedBtn.Click += (_, __) => { /* future advanced options */ };
+            }
 
             if (editAreasBtn != null)
             {
                 editAreasBtn.Click += async (_, __) =>
                 {
                     int a = int.TryParse(aBox?.Text, out var aa) ? aa : _vm.AreasCount;
+                    // Pass vm so dialog can prefill and operate on VM
                     var dlg = new EditAreasDialog(a, _vm);
                     var result = await dlg.ShowDialog<string?>(this);
-                    if (result != null)
-                    {
-                        var (ok, err) = _vm.ParseAndSetAreasFromText(result);
-                        if (!ok) await MessageBox("Error", err);
-                        else if (aBox != null) aBox.Text = _vm.AreasCount.ToString();
-                    }
+
+                    // Always refresh UI from VM (dialog may have modified or cleared areas)
+                    if (aBox != null) aBox.Text = _vm.AreasCount.ToString();
+                    if (summaryBox != null) summaryBox.Text = _vm.SummaryText;
                 };
             }
 
@@ -91,12 +92,30 @@ namespace SAH.UI
                     int p = int.TryParse(pBox?.Text, out var pp) ? pp : _vm.PrecipsCount;
                     var dlg = new EditPrecipsDialog(p, _vm);
                     var result = await dlg.ShowDialog<string?>(this);
-                    if (result != null)
-                    {
-                        var (ok, err) = _vm.ParseAndSetPrecipsFromText(result);
-                        if (!ok) await MessageBox("Error", err);
-                        else if (pBox != null) pBox.Text = _vm.PrecipsCount.ToString();
-                    }
+
+                    // Refresh UI after dialog returns
+                    if (pBox != null) pBox.Text = _vm.PrecipsCount.ToString();
+                    if (summaryBox != null) summaryBox.Text = _vm.SummaryText;
+                };
+            }
+
+            if (clearAllAreasBtn != null)
+            {
+                clearAllAreasBtn.Click += (_, __) =>
+                {
+                    _vm.ClearAreas();
+                    if (aBox != null) aBox.Text = _vm.AreasCount.ToString();
+                    if (summaryBox != null) summaryBox.Text = _vm.SummaryText;
+                };
+            }
+
+            if (clearAllPrecipsBtn != null)
+            {
+                clearAllPrecipsBtn.Click += (_, __) =>
+                {
+                    _vm.ClearPrecips();
+                    if (pBox != null) pBox.Text = _vm.PrecipsCount.ToString();
+                    if (summaryBox != null) summaryBox.Text = _vm.SummaryText;
                 };
             }
 

@@ -15,7 +15,6 @@
     <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.0" />
     <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.0" />
 
-    <!-- mantén o ajusta OxyPlot según prefieras; por ahora dejamos sólo ReactiveUI -->
     <PackageReference Include="ReactiveUI" Version="20.1.1" />
   </ItemGroup>
 
@@ -23,6 +22,9 @@
     <ProjectReference Include="..\SAH.Core\SAH.Core.csproj" />
   </ItemGroup>
 
-  <!-- NOTA: he eliminado la línea que incluía **\*.axaml como AvaloniaResource para evitar inclusiones duplicadas.
-       Si prefieres incluir recursos explícitamente, podemos añadir sólo los axaml que quieras uno a uno. -->
+  <!-- Incluir la carpeta Assets como recursos Avalonia (embebidos) -->
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\**\*.*" />
+  </ItemGroup>
+
 </Project>

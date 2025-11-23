@@ -10,7 +10,6 @@
     </ScrollViewer>
 
     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8">
-      <Button x:Name="NormalizeBtn" Content="Normalizar" />
       <Button x:Name="ClearAllBtn" Content="Borrar todo" />
       <Button x:Name="AcceptBtn" Content="Aceptar" />
       <Button x:Name="CancelBtn" Content="Cancelar" />

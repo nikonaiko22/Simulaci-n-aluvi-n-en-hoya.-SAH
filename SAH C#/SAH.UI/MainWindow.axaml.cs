@@ -7,8 +7,6 @@ using SAH.UI.ViewModels;
 using SAH.UI.Models;
 using System.Threading.Tasks;
 using SAH.UI.Controls;
-using Avalonia.Controls.Primitives; // for ToggleButton.IsCheckedProperty
-using System.Reactive.Linq;
 
 namespace SAH.UI
 {
@@ -27,9 +25,6 @@ namespace SAH.UI
             var editPrecipsBtn = this.FindControl<Button>("EditPrecipsBtn");
             var simulateBtn = this.FindControl<Button>("SimulateBtn");
             var clearBtn = this.FindControl<Button>("ClearBtn");
-
-            var clearAllAreasBtn = this.FindControl<Button>("ClearAllAreasBtn");
-            var clearAllPrecipsBtn = this.FindControl<Button>("ClearAllPrecipsBtn");
             var advancedBtn = this.FindControl<Button>("AdvancedBtn");
 
             var aBox = this.FindControl<TextBox>("ABox");
@@ -44,6 +39,7 @@ namespace SAH.UI
 
             var chartType = this.FindControl<ComboBox>("ChartType");
             var chartMetric = this.FindControl<ComboBox>("ChartMetric");
+            var chartMetricLabel = this.FindControl<TextBlock>("ChartMetricLabel");
             var mainChart = this.FindControl<ChartControl>("MainChart");
 
             // initial UI state
@@ -52,6 +48,10 @@ namespace SAH.UI
             if (resultsList != null) resultsList.ItemsSource = _vm.Rows;
             if (summaryBox != null) summaryBox.Text = _vm.SummaryText;
 
+            // set initial metric label
+            if (chartMetricLabel != null)
+                chartMetricLabel.Text = (chartMetric?.SelectedIndex ?? 0) == 0 ? "Volumen (m³)" : "Caudal (m³/s)";
+
             // chart option changes
             void UpdateChartMode()
             {
@@ -59,6 +59,10 @@ namespace SAH.UI
                 bool useBars = (chartType?.SelectedIndex ?? 0) == 1;
                 bool showVolume = (chartMetric?.SelectedIndex ?? 0) == 0;
                 mainChart.SetMode(useBars, showVolume);
+
+                // update the textual label to reflect selection
+                if (chartMetricLabel != null)
+                    chartMetricLabel.Text = showVolume ? "Volumen (m³)" : "Caudal (m³/s)";
             }
 
             if (chartType != null) chartType.SelectionChanged += (_, __) => UpdateChartMode();
@@ -75,7 +79,6 @@ namespace SAH.UI
                 editAreasBtn.Click += async (_, __) =>
                 {
                     int a = int.TryParse(aBox?.Text, out var aa) ? aa : _vm.AreasCount;
-                    // Pass vm so dialog can prefill and operate on VM
                     var dlg = new EditAreasDialog(a, _vm);
                     var result = await dlg.ShowDialog<string?>(this);
 
@@ -94,26 +97,6 @@ namespace SAH.UI
                     var result = await dlg.ShowDialog<string?>(this);
 
                     // Refresh UI after dialog returns
-                    if (pBox != null) pBox.Text = _vm.PrecipsCount.ToString();
-                    if (summaryBox != null) summaryBox.Text = _vm.SummaryText;
-                };
-            }
-
-            if (clearAllAreasBtn != null)
-            {
-                clearAllAreasBtn.Click += (_, __) =>
-                {
-                    _vm.ClearAreas();
-                    if (aBox != null) aBox.Text = _vm.AreasCount.ToString();
-                    if (summaryBox != null) summaryBox.Text = _vm.SummaryText;
-                };
-            }
-
-            if (clearAllPrecipsBtn != null)
-            {
-                clearAllPrecipsBtn.Click += (_, __) =>
-                {
-                    _vm.ClearPrecips();
                     if (pBox != null) pBox.Text = _vm.PrecipsCount.ToString();
                     if (summaryBox != null) summaryBox.Text = _vm.SummaryText;
                 };

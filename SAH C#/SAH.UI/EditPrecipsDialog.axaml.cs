@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
+using Avalonia.Input;
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -82,12 +83,50 @@ namespace SAH.UI
                 if (parts.Length > 1) ce.Text = parts[1].Trim();
                 if (parts.Length > 2) cm.Text = parts[2].Trim();
             }
+
+            // Enter navigation: p -> ce -> cm -> next row p (creates row if needed)
+            p.KeyDown += (s, e) =>
+            {
+                if (e.Key == Key.Enter)
+                {
+                    ce.Focus();
+                    e.Handled = true;
+                }
+            };
+            ce.KeyDown += (s, e) =>
+            {
+                if (e.Key == Key.Enter)
+                {
+                    cm.Focus();
+                    e.Handled = true;
+                }
+            };
+
             sp.Children.Add(lbl);
             sp.Children.Add(p);
             sp.Children.Add(ce);
             sp.Children.Add(cm);
             _gridPanel.Children.Add(sp);
             _rows.Add((p, ce, cm));
+
+            int thisIndex = _rows.Count - 1;
+            cm.KeyDown += (s, e) =>
+            {
+                if (e.Key == Key.Enter)
+                {
+                    int nextIdx = thisIndex + 1;
+                    if (nextIdx < _rows.Count)
+                    {
+                        _rows[nextIdx].p.Focus();
+                    }
+                    else
+                    {
+                        AddRow();
+                        _rows.Last().p.Focus();
+                    }
+                    e.Handled = true;
+                }
+            };
         }
 
         private void InitializeComponent() => AvaloniaXamlLoader.Load(this);

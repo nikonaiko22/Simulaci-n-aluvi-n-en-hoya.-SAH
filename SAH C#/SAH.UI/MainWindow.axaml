@@ -16,7 +16,7 @@
     <Border Grid.Row="0" Background="Transparent">
       <Grid ColumnDefinitions="Auto,*,Auto">
         <StackPanel Orientation="Horizontal" Spacing="12" VerticalAlignment="Center">
-          <TextBlock Text="CHARM Cuenca Hourly Alert and Runoff Monitor" FontSize="14" FontWeight="SemiBold" Foreground="#0B5F50" VerticalAlignment="Center"/>
+          <TextBlock Text="CHARM - Cuenca Hourly Alert and Runoff Monitor" FontSize="14" FontWeight="SemiBold" Foreground="#0B5F50" VerticalAlignment="Center"/>
         </StackPanel>
 
         <!-- Right: Advanced button placeholder -->
@@ -34,7 +34,7 @@
         <ColumnDefinition Width="320"/>
       </Grid.ColumnDefinitions>
 
-      <!-- Left card: parameters (ABox moved left and made neater) -->
+      <!-- Left card: parameters -->
       <Border Grid.Column="0" Background="#FFFFFF" CornerRadius="10" Padding="14" BorderBrush="#E6F0EE" BorderThickness="1" >
         <StackPanel Spacing="10">
           <TextBlock Text="Parámetros" FontSize="16" FontWeight="Bold" Foreground="#0B5F50"/>
@@ -49,19 +49,15 @@
             </StackPanel>
           </StackPanel>
 
-          <StackPanel Orientation="Horizontal" Spacing="8">
-            <Button x:Name="EditAreasBtn" Content="Editar Áreas" Width="150" Background="#19D0A8" Foreground="Black"/>
-            <Button x:Name="EditPrecipsBtn" Content="Editar Precipit." Width="150" Background="#19D0A8" Foreground="Black"/>
+          <!-- Edit buttons centered inside border -->
+          <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+            <Button x:Name="EditAreasBtn" Content="Editar Áreas" Width="140" Background="#19D0A8" Foreground="Black"/>
+            <Button x:Name="EditPrecipsBtn" Content="Editar Precipit." Width="140" Background="#19D0A8" Foreground="Black"/>
           </StackPanel>
 
           <StackPanel Orientation="Horizontal" Spacing="8">
             <Button x:Name="SimulateBtn" Content="Simular" Background="#0B5F50" Foreground="White" Height="44" FontWeight="Bold" Width="150"/>
             <Button x:Name="ClearBtn" Content="Limpiar" Width="120" Height="44"/>
-          </StackPanel>
-
-          <StackPanel Orientation="Horizontal" Spacing="8">
-            <Button x:Name="ClearAllAreasBtn" Content="Borrar Áreas" Width="150"/>
-            <Button x:Name="ClearAllPrecipsBtn" Content="Borrar Precip." Width="150"/>
           </StackPanel>
 
           <ProgressBar x:Name="BusyBar" IsVisible="False" IsIndeterminate="True" Height="8" Foreground="#19D0A8"/>
@@ -71,7 +67,7 @@
         </StackPanel>
       </Border>
 
-      <!-- Center: Chart + selectors moved into chart card -->
+      <!-- Center: Chart + selectors -->
       <Border Grid.Column="1" Background="#FFFFFF" CornerRadius="10" Padding="12" Margin="12,0" BorderBrush="#E6F0EE" BorderThickness="1">
         <Grid>
           <Grid.RowDefinitions>
@@ -82,8 +78,9 @@
           <!-- Chart header: selectors on right -->
           <Grid Grid.Row="0" ColumnDefinitions="*,Auto">
             <TextBlock Text="Gráfico" FontSize="14" FontWeight="Bold" Foreground="#0B5F50" VerticalAlignment="Center"/>
-            <StackPanel Orientation="Horizontal" Grid.Column="1" Spacing="8">
-              <ComboBox x:Name="ChartMetric" SelectedIndex="0" Width="120">
+
+            <StackPanel Orientation="Horizontal" Grid.Column="1" Spacing="8" VerticalAlignment="Center">
+              <ComboBox x:Name="ChartMetric" SelectedIndex="0" Width="150">
                 <ComboBoxItem Content="Volumen (m³)"/>
                 <ComboBoxItem Content="Caudal (m³/s)"/>
               </ComboBox>
@@ -91,6 +88,9 @@
                 <ComboBoxItem Content="Línea"/>
                 <ComboBoxItem Content="Barras"/>
               </ComboBox>
+
+              <!-- label that mirrors metric selection -->
+              <TextBlock x:Name="ChartMetricLabel" Text="Volumen (m³)" Margin="8,0,0,0" VerticalAlignment="Center" Foreground="#3F6060"/>
             </StackPanel>
           </Grid>
 
@@ -98,7 +98,7 @@
         </Grid>
       </Border>
 
-      <!-- Right: Summary with explanations -->
+      <!-- Right: Summary with explanations (use 'máximo' not 'pico') -->
       <Border Grid.Column="2" Background="#FFFFFF" CornerRadius="10" Padding="14" BorderBrush="#E6F0EE" BorderThickness="1">
         <StackPanel Spacing="8">
           <TextBlock Text="Resumen rápido" FontSize="16" FontWeight="Bold" Foreground="#0B5F50"/>
@@ -121,9 +121,9 @@
           <Separator Background="#E6F0EE" Margin="0,8,0,8"/>
 
           <TextBlock Text="Leyenda (explicación)" FontWeight="Bold" Foreground="#0B5F50"/>
-          <TextBlock Text="Q[v] — Caudal pico o máximo observado en el hidrograma (m³/s)." TextWrapping="Wrap" Foreground="#3F6060"/>
+          <TextBlock Text="Q[v] — Caudal máximo observado en el hidrograma (m³/s)." TextWrapping="Wrap" Foreground="#3F6060"/>
           <TextBlock Text="V[v] — Volumen máximo por hora (m³)." TextWrapping="Wrap" Foreground="#3F6060"/>
-          <TextBlock Text="Tiempo a pico — Hora donde se alcanza Q[v] (h)." TextWrapping="Wrap" Foreground="#3F6060"/>
+          <TextBlock Text="Tiempo a máximo — Hora donde se alcanza Q[v] (h)." TextWrapping="Wrap" Foreground="#3F6060"/>
           <TextBlock Text="Volumen total — Suma de todos los volúmenes (m³)" TextWrapping="Wrap" Foreground="#3F6060"/>
         </StackPanel>
       </Border>

@@ -16,7 +16,7 @@
     <Border Grid.Row="0" Background="Transparent">
       <Grid ColumnDefinitions="Auto,*,Auto">
         <StackPanel Orientation="Horizontal" Spacing="12" VerticalAlignment="Center">
-          <TextBlock Text="CHARM - Cuenca Hourly Alert and Runoff Monitor" FontSize="14" FontWeight="SemiBold" Foreground="#0B5F50" VerticalAlignment="Center"/>
+          <TextBlock Text="CHARM Cuenca Hourly Alert and Runoff Monitor" FontSize="14" FontWeight="SemiBold" Foreground="#0B5F50" VerticalAlignment="Center"/>
         </StackPanel>
 
         <!-- Right: Advanced button placeholder -->
